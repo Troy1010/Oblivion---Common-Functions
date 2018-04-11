@@ -27,15 +27,17 @@ Form maps are maps that use FormIDs as keys.
 Because FormIDs change (ie whenever mod load order is changed), it is important to resolve them as necessary.
 There are 8 types
 These next 3 FormMap types use this format: FormMap[svHexModIndexAsAString][svLast6DigitsOfFormIDAsAString]
+These types are your standard Stringmaps. Best to use if you rarely access items by key.
  1 - Stream(Resolve)
  2 - RawStream(ResolveRaw)
  3 - List(Whipe)
 These next 3 FormMap types use this format: FormMap[iDecModIndex][iLast6DigitsOfFormIDAsADecNumeral]
+These types take less processing power to access items by key, but require an initial chunk of space in the SaveData.
  4 - NumericFormMap(Resolve)
  5 - NumericFormMap(ResolveRaw)
  6 - NumericFormMap(Whipe)
 These next 2 FormMap types use this format: FormMap[iLast6DigitsOfFormIDAsADecNumeral]
-These types are useful if their ModIndex can be assumed because they take little processing power.
+These types take less processing power to access items by key, but require that the ModIndex can be assumed.
 Because ModIndices are not recorded, resolutions are unnecessary.
  7 - QuasiFormMap(NoWhipe)
  8 - QuasiFormMap(Whipe)
